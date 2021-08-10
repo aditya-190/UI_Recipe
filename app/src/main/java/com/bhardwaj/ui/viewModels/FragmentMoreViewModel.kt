@@ -23,9 +23,7 @@ class FragmentMoreViewModel : ViewModel() {
         intent.data = Uri.parse("mailto:")
         intent.putExtra(Intent.EXTRA_EMAIL, "yrkkh.cclub@gmail.com")
         intent.putExtra(Intent.EXTRA_SUBJECT, "Regarding UI Recipe App")
-        if (intent.resolveActivity(activity.packageManager) != null) {
-            activity.startActivity(intent)
-        }
+        activity.startActivity((Intent.createChooser(intent, "Send email via:")))
     }
 
     fun about(mContext: Context) {
@@ -92,7 +90,7 @@ class FragmentMoreViewModel : ViewModel() {
                     "\n" +
                     "I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.\n" +
                     "\n" +
-                    "This policy is effective as of 2021-07-25\n" +
+                    "This policy is effective as of 2021-08-15\n" +
                     "\n" +
                     "Contact Us\n" +
                     "\n" +
