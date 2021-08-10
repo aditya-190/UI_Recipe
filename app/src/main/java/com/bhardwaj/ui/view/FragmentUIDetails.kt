@@ -25,11 +25,13 @@ class FragmentUIDetails : Fragment(), UIDetailListener {
     private lateinit var dotsIndicator: DotsIndicator
     private lateinit var uiDetails: UI
     private var itemList: ArrayList<Any> = arrayListOf()
+    private val args: FragmentUIDetailsArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        uiDetails = args.uIDetail
         return inflater.inflate(R.layout.fragment_ui_detail, container, false)
     }
 
@@ -40,7 +42,6 @@ class FragmentUIDetails : Fragment(), UIDetailListener {
         dotsIndicator = view.findViewById(R.id.dotsIndicator)
 
         viewModel = ViewModelProvider(this).get(FragmentUIDetailsViewModel::class.java)
-        uiDetails = arguments?.get("uIDetail") as UI
 
         itemList.addAll(uiDetails.uiImages!!)
         sliderAdapter = context?.let { ImageSliderAdapter(it, itemList) }!!
