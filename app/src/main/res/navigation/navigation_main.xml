@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/fragmentAdobeXD">
+
+    <fragment
+        android:id="@+id/fragmentAdobeXD"
+        android:name="com.bhardwaj.ui.view.FragmentAdobeXD"
+        android:label="fragment_adobe_xd"
+        tools:layout="@layout/fragment_adobe_xd">
+        <action
+            android:id="@+id/action_fragmentAdobeXD_to_fragmentSearch"
+            app:destination="@id/fragmentSearch" />
+        <action
+            android:id="@+id/action_fragmentAdobeXD_to_fragmentUIDetails"
+            app:destination="@id/fragmentUIDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFigma"
+        android:name="com.bhardwaj.ui.view.FragmentFigma"
+        android:label="fragment_figma"
+        tools:layout="@layout/fragment_figma">
+        <action
+            android:id="@+id/action_fragmentFigma_to_fragmentSearch"
+            app:destination="@id/fragmentSearch" />
+        <action
+            android:id="@+id/action_fragmentFigma_to_fragmentUIDetails"
+            app:destination="@id/fragmentUIDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSketch"
+        android:name="com.bhardwaj.ui.view.FragmentSketch"
+        android:label="fragment_sketch"
+        tools:layout="@layout/fragment_sketch">
+        <action
+            android:id="@+id/action_fragmentSketch_to_fragmentSearch"
+            app:destination="@id/fragmentSearch" />
+        <action
+            android:id="@+id/action_fragmentSketch_to_fragmentUIDetails"
+            app:destination="@id/fragmentUIDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentMore"
+        android:name="com.bhardwaj.ui.view.FragmentMore"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="com.bhardwaj.ui.view.FragmentSearch"
+        android:label="FragmentSearch">
+        <action
+            android:id="@+id/action_fragmentSearch_to_fragmentUIDetails"
+            app:destination="@id/fragmentUIDetails" />
+        <argument
+            android:name="SearchDetail"
+            android:defaultValue="@null"
+            app:argType="com.bhardwaj.ui.models.UI"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentUIDetails"
+        android:name="com.bhardwaj.ui.view.FragmentUIDetails"
+        android:label="FragmentUIDetails">
+        <argument
+            android:name="UIDetail"
+            app:argType="com.bhardwaj.ui.models.UI" />
+    </fragment>
+</navigation>

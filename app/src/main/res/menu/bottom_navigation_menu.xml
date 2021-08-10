@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragmentAdobeXD"
+        android:icon="@drawable/icon_xd"
+        android:title="@string/adobeXD" />
+
+    <item
+        android:id="@+id/fragmentSketch"
+        android:icon="@drawable/icon_sketch"
+        android:title="@string/Sketch" />
+
+    <item
+        android:id="@+id/fragmentFigma"
+        android:icon="@drawable/icon_figma"
+        android:title="@string/Figma" />
+
+    <item
+        android:id="@+id/fragmentMore"
+        android:icon="@drawable/icon_load"
+        android:title="@string/more" />
+</menu>
