@@ -8,7 +8,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import com.bhardwaj.ui.adapters.ImageSliderAdapter
 import com.bhardwaj.ui.models.Download
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdLoader
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
 
 class FragmentUIDetailsViewModel : ViewModel() {
 

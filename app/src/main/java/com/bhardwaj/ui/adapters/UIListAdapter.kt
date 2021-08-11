@@ -11,8 +11,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bhardwaj.ui.R
 import com.bhardwaj.ui.models.UI
+import com.bhardwaj.ui.utils.Call
 import com.bhardwaj.ui.utils.Util
-import com.bhardwaj.ui.utils.call
 import com.bhardwaj.ui.view.FragmentAdobeXDDirections
 import com.bhardwaj.ui.view.FragmentFigmaDirections
 import com.bhardwaj.ui.view.FragmentSketchDirections
@@ -26,7 +26,7 @@ class UIListAdapter(
     val uiList: ArrayList<Any>,
     private val type: String,
     private val mContext: Context
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), call {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Call {
 
     val loadMore by lazy { MutableLiveData<Boolean>() }
 

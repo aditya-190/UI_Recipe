@@ -1,34 +1,34 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-<!-- Base application theme. -->
-<style name="Theme.UIRecipe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-    <!-- Primary brand color. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
-    <item name="colorOnPrimary">@color/colorOnPrimary</item>
-    <!-- Secondary brand color. -->
-    <item name="colorSecondary">@color/colorPrimary</item>
-    <item name="colorSecondaryVariant">@color/colorPrimaryVariant</item>
-    <item name="colorOnSecondary">@color/colorOnPrimary</item>
-    <!-- Status bar color. -->
-    <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-    <!-- Customize your theme here. -->
-    <item name="fontFamily">@font/common</item>
-    <item name="searchViewStyle">@style/customSearchView</item>
-    <item name="android:navigationBarColor">@color/colorDarkVariant</item>
-    <item name="android:windowBackground">@color/colorPrimary</item>
-</style>
+    <!-- Base application theme. -->
+    <style name="Theme.UIRecipe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnPrimary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="fontFamily">@font/common</item>
+        <item name="searchViewStyle">@style/customSearchView</item>
+        <item name="android:navigationBarColor">@color/colorDarkVariant</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
 
-<style name="customSearchView" parent="Widget.AppCompat.SearchView">
-    <item name="searchHintIcon">@null</item>
-    <item name="defaultQueryHint">@string/search</item>
-    <item name="submitBackground">@color/colorPrimary</item>
-    <item name="queryBackground">@color/colorPrimary</item>
-</style>
+    <style name="customSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="searchHintIcon">@null</item>
+        <item name="defaultQueryHint">@string/search</item>
+        <item name="submitBackground">@color/colorPrimary</item>
+        <item name="queryBackground">@color/colorPrimary</item>
+    </style>
 
-<style name="customAlertDialog" parent="Animation.Design.BottomSheetDialog">
-    <item name="android:textColor">@color/colorText</item>
-    <item name="android:textColorPrimary">@color/colorText</item>
-    <item name="textColorAlertDialogListItem">@color/colorText</item>
-    <item name="buttonTint">@color/colorOnPrimary</item>
-</style>
+    <style name="customAlertDialog" parent="Animation.Design.BottomSheetDialog">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorPrimary">@color/colorText</item>
+        <item name="textColorAlertDialogListItem">@color/colorText</item>
+        <item name="buttonTint">@color/colorOnPrimary</item>
+    </style>
 </resources>

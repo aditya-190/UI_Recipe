@@ -10,8 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.bhardwaj.ui.R
-import com.bhardwaj.ui.utils.UIDetailListener
-import com.bhardwaj.ui.viewModels.FragmentFigmaViewModel
 import com.bhardwaj.ui.viewModels.FragmentMoreViewModel
 
 class FragmentMore : Fragment(), View.OnClickListener {

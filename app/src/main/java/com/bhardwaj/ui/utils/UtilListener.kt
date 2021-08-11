@@ -1,11 +1,5 @@
 package com.bhardwaj.ui.utils
 
-import android.view.View
-
-interface UIDetailListener {
-    fun onUIListClick(view: View)
-}
-
-interface call {
+interface Call {
     fun onCall(uiListItem: ArrayList<Any>)
 }
