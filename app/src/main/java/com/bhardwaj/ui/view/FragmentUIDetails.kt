@@ -31,7 +31,7 @@ class FragmentUIDetails : Fragment(), UIDetailListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        uiDetails = args.uIDetail
+        uiDetails = args.UIDetail
         return inflater.inflate(R.layout.fragment_ui_detail, container, false)
     }
 
