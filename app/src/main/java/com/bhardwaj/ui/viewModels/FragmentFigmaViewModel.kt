@@ -7,9 +7,11 @@ import android.os.Parcelable
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bhardwaj.ui.R
 import com.bhardwaj.ui.adapters.UIListAdapter
 import com.bhardwaj.ui.models.FirestoreRepository
 import com.bhardwaj.ui.models.UI
+import com.bhardwaj.ui.utils.Util.Companion.intervalOfAds
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
@@ -47,7 +49,7 @@ class FragmentFigmaViewModel : ViewModel() {
     private fun insertAds(uiListAdapter: UIListAdapter) {
         if (unifiedAds.size <= 0) return
         val offset: Int = (itemList.size / unifiedAds.size) + 1
-        var index = 7
+        var index = intervalOfAds
         for (unifiedAd in unifiedAds) {
             uiListAdapter.uiList.add(index, unifiedAd)
             index += offset
@@ -58,7 +60,7 @@ class FragmentFigmaViewModel : ViewModel() {
     private fun loadNativeAd(mContext: Context, uiListAdapter: UIListAdapter) {
         unifiedAds.clear()
         var adLoader: AdLoader? = null
-        val builder = AdLoader.Builder(mContext, "")
+        val builder = AdLoader.Builder(mContext, mContext.resources.getString(R.string.figma_ads))
         adLoader = builder.forNativeAd { nativeAd ->
             unifiedAds.add(nativeAd)
 

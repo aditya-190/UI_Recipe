@@ -34,7 +34,7 @@ class FragmentUIDetailsViewModel : ViewModel() {
     }
 
     fun loadNativeAd(mContext: Context, imageSliderAdapter: ImageSliderAdapter) {
-        val builder = AdLoader.Builder(mContext, "")
+        val builder = AdLoader.Builder(mContext, "ca-app-pub-3940256099942544/2247696110")
         builder.forNativeAd { nativeAd ->
             imageSliderAdapter.updateList(nativeAd)
         }

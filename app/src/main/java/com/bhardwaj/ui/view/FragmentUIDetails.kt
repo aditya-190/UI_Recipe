@@ -52,10 +52,8 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
         viewModel = ViewModelProvider(this).get(FragmentUIDetailsViewModel::class.java)
 
         itemList.addAll(uiDetails.uiImages!!)
-        sliderAdapter = context?.let { ImageSliderAdapter(it, itemList) }!!
-        context?.let {
-            viewModel.loadNativeAd(it, sliderAdapter)
-        }
+        sliderAdapter = ImageSliderAdapter(requireContext(), itemList)
+        viewModel.loadNativeAd(requireContext(), sliderAdapter)
 
         viewPager.adapter = sliderAdapter
         dotsIndicator.setViewPager2(viewPager)

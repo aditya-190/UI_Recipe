@@ -33,6 +33,17 @@
 
     <!-- Ad's -->
     <string name="ad">Ad</string>
+
+    <!-- Testing ID's -->
     <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="adobe_xd_ads">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="figma_ads">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="sketch_ads">ca-app-pub-3940256099942544/2247696110</string>
+
+    <!-- Real ID's -->
+<!--    <string name="app_id"></string>-->
+<!--    <string name="adobe_xd_ads"></string>-->
+<!--    <string name="figma_ads"></string>-->
+<!--    <string name="sketch_ads"></string>-->
 
 </resources>
