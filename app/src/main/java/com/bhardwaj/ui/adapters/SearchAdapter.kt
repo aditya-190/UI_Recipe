@@ -55,19 +55,19 @@ class SearchAdapter(
             when (type) {
                 mContext.getString(R.string.adobeXD) -> {
                     Navigation.findNavController(view).navigate(
-                        FragmentAdobeXDDirections.actionFragmentAdobeXDToFragmentSearch(current)
+                        FragmentAdobeXDDirections.actionFragmentAdobeXDToFragmentUIDetails(current)
                     )
                 }
 
                 mContext.getString(R.string.sketch) -> {
                     Navigation.findNavController(view).navigate(
-                        FragmentSketchDirections.actionFragmentSketchToFragmentSearch(current)
+                        FragmentSketchDirections.actionFragmentSketchToFragmentUIDetails(current)
                     )
                 }
 
                 mContext.getString(R.string.figma) -> {
                     Navigation.findNavController(view).navigate(
-                        FragmentFigmaDirections.actionFragmentFigmaToFragmentSearch(current)
+                        FragmentFigmaDirections.actionFragmentFigmaToFragmentUIDetails(current)
                     )
                 }
             }
