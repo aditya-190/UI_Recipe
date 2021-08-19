@@ -1,11 +1,12 @@
 package com.bhardwaj.ui.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
@@ -22,10 +23,11 @@ import com.bhardwaj.ui.adapters.UIListAdapter
 import com.bhardwaj.ui.viewModels.FragmentAdobeXdViewModel
 import com.ethanhua.skeleton.RecyclerViewSkeletonScreen
 import com.ethanhua.skeleton.Skeleton
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
     private lateinit var uiListAdapter: UIListAdapter
-    private var selectedCategory: Int = -1
+    private var selectedCategory: Int? = -1
     private val viewModel: FragmentAdobeXdViewModel by viewModels()
     private lateinit var skeletonScreen: RecyclerViewSkeletonScreen
 
@@ -52,7 +54,11 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        uiListAdapter = UIListAdapter(arrayListOf(), "xd", requireActivity().applicationContext)
+        uiListAdapter = UIListAdapter(
+            arrayListOf(),
+            getString(R.string.firestore_xd),
+            requireActivity().applicationContext
+        )
         adobeRefreshLayout = view.findViewById(R.id.adobeRefreshLayout)
         adobeRecycler = view.findViewById(R.id.adobeRecycler)
         adobeToolbar = view.findViewById(R.id.adobeToolbar)
@@ -102,11 +108,59 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
             }
 
             R.id.filter -> {
-                Toast.makeText(
-                    requireActivity().applicationContext,
-                    "Filter Selected.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                activity?.let {
+                    val dialog = BottomSheetDialog(it)
+                    dialog.setContentView(R.layout.dialog_filter)
+
+                    val rgFilterOptions: RadioGroup? = dialog.findViewById(R.id.rgFilterOptions)
+                    val tvApplyButton: TextView? = dialog.findViewById(R.id.tvApplyButton)
+
+                    tvApplyButton?.setOnClickListener {
+                        selectedCategory = when (rgFilterOptions?.checkedRadioButtonId) {
+                            R.id.rbAll -> {
+                                viewModel.filter(getString(R.string.all), requireContext(), uiListAdapter)
+                                dialog.dismiss()
+                                0
+                            }
+                            R.id.rbMobile -> {
+                                viewModel.filter(
+                                    getString(R.string.mobile),
+                                    requireContext(),
+                                    uiListAdapter
+                                )
+                                dialog.dismiss()
+                                1
+                            }
+                            R.id.rbWebsite -> {
+                                viewModel.filter(
+                                    getString(R.string.website),
+                                    requireContext(),
+                                    uiListAdapter
+                                )
+                                dialog.dismiss()
+                                2
+                            }
+                            R.id.rbMiscellaneous -> {
+                                viewModel.filter(
+                                    getString(R.string.miscellaneous),
+                                    requireContext(),
+                                    uiListAdapter
+                                )
+                                dialog.dismiss()
+                                3
+                            }
+                            else -> {
+                                Toast.makeText(
+                                    requireContext(),
+                                    getString(R.string.category_not_found),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                -1
+                            }
+                        }
+                    }
+                    dialog.show()
+                }
             }
         }
         return true

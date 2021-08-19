@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     override fun onBackPressed() {
         if (canShowSnackBar) {
-            Snackbar.make(clRootMain, "Are you sure you want to exit?", Snackbar.LENGTH_SHORT)
+            Snackbar.make(clRootMain, getString(R.string.exit), Snackbar.LENGTH_SHORT)
                 .also {
                     it.setAction("Yes") { ActivityCompat.finishAffinity(this) }
                     it.setActionTextColor(resources.getColor(R.color.colorWhite, this.theme))

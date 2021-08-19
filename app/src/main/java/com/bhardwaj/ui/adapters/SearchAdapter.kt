@@ -53,19 +53,19 @@ class SearchAdapter(
 
         holder.mcvUIContainer.setOnClickListener { view ->
             when (type) {
-                "xd" -> {
+                mContext.getString(R.string.adobeXD) -> {
                     Navigation.findNavController(view).navigate(
                         FragmentAdobeXDDirections.actionFragmentAdobeXDToFragmentSearch(current)
                     )
                 }
 
-                "sketch" -> {
+                mContext.getString(R.string.sketch) -> {
                     Navigation.findNavController(view).navigate(
                         FragmentSketchDirections.actionFragmentSketchToFragmentSearch(current)
                     )
                 }
 
-                "figma" -> {
+                mContext.getString(R.string.figma) -> {
                     Navigation.findNavController(view).navigate(
                         FragmentFigmaDirections.actionFragmentFigmaToFragmentSearch(current)
                     )

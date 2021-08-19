@@ -3,9 +3,14 @@
 
     <!-- Bottom Navigation -->
     <string name="adobeXD">Adobe XD</string>
-    <string name="Sketch">Sketch</string>
-    <string name="Figma">Figma</string>
+    <string name="sketch">Sketch</string>
+    <string name="figma">Figma</string>
     <string name="more">More</string>
+
+    <!-- Firebase Used Variables -->
+    <string name="firestore_xd">xd</string>
+    <string name="firestore_figma">figma</string>
+    <string name="firestore_sketch">sketch</string>
 
     <!-- Toolbar Options -->
     <string name="search">Search</string>
@@ -16,6 +21,18 @@
     <string name="miscellaneous">Miscellaneous</string>
     <string name="select_category">Select Category</string>
     <string name="apply">Apply</string>
+
+    <!-- Toast Messages -->
+    <string name="category_not_found">Please Select Category</string>
+    <string name="download_failed">Download Failed.</string>
+    <string name="download_success">File saved in Downloads Folder.</string>
+    <string name="download_progress">Downloading UI Resource…</string>
+    <string name="exit">Are you sure you want to exit?</string>
+    <string name="fetch_error">Something went wrong</string>
+    <string name="no_internet_error">Please check your Internet</string>
+    <string name="no_results">No Results Found.</string>
+    <string name="open_link_via">Open link via</string>
+    <string name="share_link_via">Share link via</string>
 
     <!-- Settings Page -->
     <string name="settings">Settings</string>
@@ -39,6 +56,7 @@
     <string name="adobe_xd_ads">ca-app-pub-3940256099942544/2247696110</string>
     <string name="figma_ads">ca-app-pub-3940256099942544/2247696110</string>
     <string name="sketch_ads">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="ui_details_ads">ca-app-pub-3940256099942544/2247696110</string>
 
     <!-- Real ID's -->
 <!--    <string name="app_id"></string>-->

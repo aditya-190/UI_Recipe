@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.net.Uri
 import android.os.Environment
 import android.widget.Toast
+import com.bhardwaj.ui.R
 
 class Download(
     private val url: String,
@@ -24,7 +25,7 @@ class Download(
             downloadRequest.apply {
                 setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)
                 setTitle(fileName)
-                setDescription("Downloading UI Resource...")
+                setDescription(mContext.getString(R.string.download_progress))
                 setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                 setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
             }
@@ -56,12 +57,16 @@ class Download(
                         if (DownloadManager.STATUS_SUCCESSFUL == cursor.getInt(columnIndex)) {
                             Toast.makeText(
                                 mContext,
-                                "File saved in Downloads Folder.",
+                                mContext.getString(R.string.download_success),
                                 Toast.LENGTH_SHORT
                             ).show()
 
                         } else if (DownloadManager.STATUS_FAILED == cursor.getInt(columnIndex)) {
-                            Toast.makeText(mContext, "Download Failed.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                mContext,
+                                mContext.getString(R.string.download_failed),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                     cursor.close()

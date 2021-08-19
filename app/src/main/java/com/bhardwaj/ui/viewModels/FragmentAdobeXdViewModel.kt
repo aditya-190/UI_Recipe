@@ -32,7 +32,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
 
     fun filter(category: String, mContext: Context, uiListAdapter: UIListAdapter) {
         loading.value = true
-        firebaseRepository.filterUIList(category, "xd")
+        firebaseRepository.filterUIList(category, mContext.getString(R.string.firestore_xd))
             .addOnSuccessListener { result ->
                 uiListAdapter.uiList.clear()
                 for (item in result) {
@@ -60,7 +60,8 @@ class FragmentAdobeXdViewModel : ViewModel() {
     private fun loadNativeAd(mContext: Context, uiListAdapter: UIListAdapter) {
         unifiedAds.clear()
         var adLoader: AdLoader? = null
-        val builder = AdLoader.Builder(mContext, mContext.resources.getString(R.string.adobe_xd_ads))
+        val builder =
+            AdLoader.Builder(mContext, mContext.resources.getString(R.string.adobe_xd_ads))
         adLoader = builder.forNativeAd { nativeAd ->
             unifiedAds.add(nativeAd)
 
@@ -94,7 +95,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
         if (isNetworkAvailable(mContext)) {
             loading.value = true
             itemList.clear()
-            firebaseRepository.getUIList("xd")
+            firebaseRepository.getUIList(mContext.getString(R.string.firestore_xd))
                 .addOnSuccessListener { result ->
                     lazyLoadQuery = result.documents[result.size() - 1]
                     for (item in result) {
@@ -105,16 +106,24 @@ class FragmentAdobeXdViewModel : ViewModel() {
                     loading.value = false
                     //loadNativeAd(mContext, uiListAdapter)
                 }.addOnFailureListener {
-                    Toast.makeText(mContext, "Something went wrong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        mContext,
+                        mContext.getString(R.string.fetch_error),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
         } else {
-            Toast.makeText(mContext, "Please check your Internet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                mContext,
+                mContext.getString(R.string.no_internet_error),
+                Toast.LENGTH_SHORT
+            ).show()
             loading.value = false
         }
     }
 
     fun lazyLoading(mContext: Context, uiListAdapter: UIListAdapter) {
-        firebaseRepository.lazyLoading("xd", lazyLoadQuery)
+        firebaseRepository.lazyLoading(mContext.getString(R.string.firestore_xd), lazyLoadQuery)
             .addOnSuccessListener { result ->
                 if (result.documents.size > 0) {
                     lazyLoadQuery = result.documents[result.size() - 1]
@@ -130,7 +139,11 @@ class FragmentAdobeXdViewModel : ViewModel() {
                 //loadNativeAd(mContext, uiListAdapter)
 
             }.addOnFailureListener {
-                Toast.makeText(mContext, "Something went wrong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    mContext,
+                    mContext.getString(R.string.fetch_error),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 }

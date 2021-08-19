@@ -86,7 +86,7 @@ class UIListAdapter(
 
                 holder0.mcvUIContainer.setOnClickListener { view ->
                     when (type) {
-                        "sketch" -> {
+                        mContext.getString(R.string.firestore_sketch) -> {
                             Navigation.findNavController(view).navigate(
                                 FragmentSketchDirections.actionFragmentSketchToFragmentUIDetails(
                                     current
@@ -94,7 +94,7 @@ class UIListAdapter(
                             )
                         }
 
-                        "figma" -> {
+                        mContext.getString(R.string.firestore_figma) -> {
                             Navigation.findNavController(view).navigate(
                                 FragmentFigmaDirections.actionFragmentFigmaToFragmentUIDetails(
                                     current
