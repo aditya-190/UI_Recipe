@@ -11,6 +11,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/search_results"
         app:titleTextColor="@color/colorWhite" />
 
     <androidx.recyclerview.widget.RecyclerView

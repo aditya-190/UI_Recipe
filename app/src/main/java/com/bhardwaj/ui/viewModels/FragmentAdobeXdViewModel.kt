@@ -35,7 +35,11 @@ class FragmentAdobeXdViewModel : ViewModel() {
         firebaseRepository.filterUIList(category, mContext.getString(R.string.firestore_xd))
             .addOnSuccessListener { result ->
                 if (result.isEmpty) {
-                    Toast.makeText(mContext, mContext.getString(R.string.no_results), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        mContext,
+                        mContext.getString(R.string.no_results),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 uiListAdapter.uiList.clear()

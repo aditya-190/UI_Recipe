@@ -20,6 +20,7 @@
     <string name="website">Website</string>
     <string name="miscellaneous">Miscellaneous</string>
     <string name="select_category">Select Category</string>
+    <string name="search_results">Search Results</string>
     <string name="apply">Apply</string>
 
     <!-- Toast Messages -->
@@ -59,9 +60,9 @@
     <string name="ui_details_ads">ca-app-pub-3940256099942544/2247696110</string>
 
     <!-- Real ID's -->
-<!--    <string name="app_id"></string>-->
-<!--    <string name="adobe_xd_ads"></string>-->
-<!--    <string name="figma_ads"></string>-->
-<!--    <string name="sketch_ads"></string>-->
+    <!--    <string name="app_id"></string>-->
+    <!--    <string name="adobe_xd_ads"></string>-->
+    <!--    <string name="figma_ads"></string>-->
+    <!--    <string name="sketch_ads"></string>-->
 
 </resources>

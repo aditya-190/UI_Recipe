@@ -27,7 +27,11 @@ class FragmentSearchViewModel : ViewModel() {
             .addOnSuccessListener { result ->
                 val itemList = arrayListOf<UI>()
                 if (result.isEmpty) {
-                    Toast.makeText(mContext, mContext.getString(R.string.no_results), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        mContext,
+                        mContext.getString(R.string.no_results),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 for (item in result) {
                     val uiItem = item.toObject<UI>()
