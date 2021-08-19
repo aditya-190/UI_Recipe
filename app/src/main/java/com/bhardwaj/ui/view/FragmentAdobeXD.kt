@@ -1,6 +1,7 @@
 package com.bhardwaj.ui.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -42,11 +43,6 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.listState = adobeRecycler.layoutManager?.onSaveInstanceState()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,12 +64,7 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
             adapter = uiListAdapter
         }
 
-        if (viewModel.listState != null) {
-            adobeRecycler.layoutManager?.onRestoreInstanceState(viewModel.listState)
-            viewModel.listState = null
-        } else {
-            viewModel.getUIList(requireContext(), uiListAdapter)
-        }
+        viewModel.getUIList(requireContext(), uiListAdapter)
 
         viewModel.loading.observe(viewLifecycleOwner, loadingLiveDataObserver)
 

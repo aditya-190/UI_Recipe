@@ -42,11 +42,6 @@ class FragmentFigma : Fragment(), Toolbar.OnMenuItemClickListener {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.listState = figmaRecycler.layoutManager?.onSaveInstanceState()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,12 +63,7 @@ class FragmentFigma : Fragment(), Toolbar.OnMenuItemClickListener {
             adapter = uiListAdapter
         }
 
-        if (viewModel.listState != null) {
-            figmaRecycler.layoutManager?.onRestoreInstanceState(viewModel.listState)
-            viewModel.listState = null
-        } else {
-            viewModel.getUIList(requireContext(), uiListAdapter)
-        }
+        viewModel.getUIList(requireContext(), uiListAdapter)
 
         viewModel.loading.observe(viewLifecycleOwner, loadingLiveDataObserver)
 
