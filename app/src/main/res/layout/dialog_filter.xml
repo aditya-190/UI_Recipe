@@ -1,84 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent">
+    android:background="@color/colorDialogs"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:background="@drawable/background_round"
-        android:backgroundTint="@color/colorDialogs"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:text="@string/select_category"
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="12dp"
-            android:text="@string/select_category"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+    <RadioGroup
+        android:id="@+id/rgFilterOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <RadioGroup
-            android:id="@+id/rgFilterOptions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rbAll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/colorOnPrimary"
-                android:paddingHorizontal="16dp"
-                android:text="@string/all"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
-
-            <RadioButton
-                android:id="@+id/rbMobile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/colorOnPrimary"
-                android:paddingHorizontal="16dp"
-                android:text="@string/mobile"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
-
-            <RadioButton
-                android:id="@+id/rbWebsite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/colorOnPrimary"
-                android:paddingHorizontal="16dp"
-                android:text="@string/website"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
-
-            <RadioButton
-                android:id="@+id/rbMiscellaneous"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/colorOnPrimary"
-                android:paddingHorizontal="16dp"
-                android:text="@string/miscellaneous"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/tvApplyButton"
+        <RadioButton
+            android:id="@+id/rbAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:paddingVertical="16dp"
-            android:text="@string/apply"
-            android:textColor="@color/colorOnPrimary"
+            android:buttonTint="@color/colorOnPrimary"
+            android:paddingHorizontal="16dp"
+            android:text="@string/all"
+            android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 
-    </LinearLayout>
-</RelativeLayout>
+        <RadioButton
+            android:id="@+id/rbMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorOnPrimary"
+            android:paddingHorizontal="16dp"
+            android:text="@string/mobile"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rbWebsite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorOnPrimary"
+            android:paddingHorizontal="16dp"
+            android:text="@string/website"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rbMiscellaneous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorOnPrimary"
+            android:paddingHorizontal="16dp"
+            android:text="@string/miscellaneous"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvApplyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:paddingVertical="16dp"
+        android:text="@string/apply"
+        android:textColor="@color/colorOnPrimary"
+        android:textSize="16sp" />
+
+</LinearLayout>

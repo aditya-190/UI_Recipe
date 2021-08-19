@@ -116,11 +116,15 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
                     val tvApplyButton: TextView? = dialog.findViewById(R.id.tvApplyButton)
 
                     tvApplyButton?.setOnClickListener {
-                        selectedCategory = when (rgFilterOptions?.checkedRadioButtonId) {
+                        selectedCategory = rgFilterOptions?.checkedRadioButtonId
+                        when (selectedCategory) {
                             R.id.rbAll -> {
-                                viewModel.filter(getString(R.string.all), requireContext(), uiListAdapter)
+                                viewModel.filter(
+                                    getString(R.string.all),
+                                    requireContext(),
+                                    uiListAdapter
+                                )
                                 dialog.dismiss()
-                                0
                             }
                             R.id.rbMobile -> {
                                 viewModel.filter(
@@ -129,7 +133,6 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
                                     uiListAdapter
                                 )
                                 dialog.dismiss()
-                                1
                             }
                             R.id.rbWebsite -> {
                                 viewModel.filter(
@@ -138,7 +141,6 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
                                     uiListAdapter
                                 )
                                 dialog.dismiss()
-                                2
                             }
                             R.id.rbMiscellaneous -> {
                                 viewModel.filter(
@@ -147,7 +149,6 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
                                     uiListAdapter
                                 )
                                 dialog.dismiss()
-                                3
                             }
                             else -> {
                                 Toast.makeText(
@@ -155,7 +156,7 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
                                     getString(R.string.category_not_found),
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                -1
+                                selectedCategory = -1
                             }
                         }
                     }
