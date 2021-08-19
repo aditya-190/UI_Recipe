@@ -10,9 +10,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bhardwaj.ui.R
 import com.bhardwaj.ui.models.UI
-import com.bhardwaj.ui.view.FragmentAdobeXDDirections
-import com.bhardwaj.ui.view.FragmentFigmaDirections
-import com.bhardwaj.ui.view.FragmentSketchDirections
+import com.bhardwaj.ui.view.FragmentSearchDirections
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.card.MaterialCardView
@@ -52,25 +50,9 @@ class SearchAdapter(
             .into(holder.ivImage)
 
         holder.mcvUIContainer.setOnClickListener { view ->
-            when (type) {
-                mContext.getString(R.string.adobeXD) -> {
-                    Navigation.findNavController(view).navigate(
-                        FragmentAdobeXDDirections.actionFragmentAdobeXDToFragmentUIDetails(current)
-                    )
-                }
-
-                mContext.getString(R.string.sketch) -> {
-                    Navigation.findNavController(view).navigate(
-                        FragmentSketchDirections.actionFragmentSketchToFragmentUIDetails(current)
-                    )
-                }
-
-                mContext.getString(R.string.figma) -> {
-                    Navigation.findNavController(view).navigate(
-                        FragmentFigmaDirections.actionFragmentFigmaToFragmentUIDetails(current)
-                    )
-                }
-            }
+            Navigation.findNavController(view).navigate(
+                FragmentSearchDirections.actionFragmentSearchToFragmentUIDetails(current)
+            )
         }
     }
 
