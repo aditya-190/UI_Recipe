@@ -52,9 +52,9 @@ class FragmentAdobeXdViewModel : ViewModel() {
         var index = intervalOfAds
         for (unifiedAd in unifiedAds) {
             uiListAdapter.uiList.add(index, unifiedAd)
+            uiListAdapter.notifyItemInserted(index)
             index += offset
         }
-        uiListAdapter.notifyDataSetChanged()
     }
 
     private fun loadNativeAd(mContext: Context, uiListAdapter: UIListAdapter) {
