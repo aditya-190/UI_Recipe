@@ -13,8 +13,8 @@ import java.util.*
 class FragmentSearchViewModel : ViewModel() {
     var firebaseRepository = FirestoreRepository()
     var queryList: ArrayList<String> = arrayListOf()
-    private val uiList by lazy { MutableLiveData<ArrayList<UI>>() }
-    private val loading by lazy { MutableLiveData<Boolean>() }
+    val uiList by lazy { MutableLiveData<ArrayList<UI>>() }
+    val loading by lazy { MutableLiveData<Boolean>() }
 
     fun getSearchResults(type: String, query: String, mContext: Context) {
         loading.value = true

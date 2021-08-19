@@ -54,10 +54,11 @@
             android:id="@+id/action_fragmentSearch_to_fragmentUIDetails"
             app:destination="@id/fragmentUIDetails" />
         <argument
-            android:name="SearchDetail"
-            android:defaultValue="@null"
-            app:argType="com.bhardwaj.ui.models.UI"
-            app:nullable="true" />
+            android:name="searchFor"
+            app:argType="string" />
+        <argument
+            android:name="searchedBy"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentUIDetails"

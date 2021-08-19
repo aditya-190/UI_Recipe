@@ -54,7 +54,11 @@ class FragmentSketch : Fragment(), Toolbar.OnMenuItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        uiListAdapter = UIListAdapter(arrayListOf(), getString(R.string.firestore_sketch), requireActivity().applicationContext)
+        uiListAdapter = UIListAdapter(
+            arrayListOf(),
+            getString(R.string.firestore_sketch),
+            requireActivity().applicationContext
+        )
         sketchRefreshLayout = view.findViewById(R.id.sketchRefreshLayout)
         sketchRecycler = view.findViewById(R.id.sketchRecycler)
         sketchToolbar = view.findViewById(R.id.sketchToolbar)
@@ -97,7 +101,12 @@ class FragmentSketch : Fragment(), Toolbar.OnMenuItemClickListener {
 
                     override fun onQueryTextSubmit(query: String): Boolean {
                         item.collapseActionView()
-                        navController.navigate(FragmentSketchDirections.actionFragmentSketchToFragmentSearch())
+                        navController.navigate(
+                            FragmentSketchDirections.actionFragmentSketchToFragmentSearch(
+                                searchFor = query.trim(),
+                                searchedBy = getString(R.string.firestore_sketch)
+                            )
+                        )
                         return false
                     }
                 })

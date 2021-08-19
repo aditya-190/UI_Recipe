@@ -54,7 +54,11 @@ class FragmentFigma : Fragment(), Toolbar.OnMenuItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        uiListAdapter = UIListAdapter(arrayListOf(), getString(R.string.firestore_figma), requireActivity().applicationContext)
+        uiListAdapter = UIListAdapter(
+            arrayListOf(),
+            getString(R.string.firestore_figma),
+            requireActivity().applicationContext
+        )
         figmaRefreshLayout = view.findViewById(R.id.figmaRefreshLayout)
         figmaRecycler = view.findViewById(R.id.figmaRecycler)
         figmaToolbar = view.findViewById(R.id.figmaToolbar)
@@ -97,7 +101,12 @@ class FragmentFigma : Fragment(), Toolbar.OnMenuItemClickListener {
 
                     override fun onQueryTextSubmit(query: String): Boolean {
                         item.collapseActionView()
-                        navController.navigate(FragmentFigmaDirections.actionFragmentFigmaToFragmentSearch())
+                        navController.navigate(
+                            FragmentFigmaDirections.actionFragmentFigmaToFragmentSearch(
+                                searchFor = query.trim(),
+                                searchedBy = getString(R.string.firestore_figma)
+                            )
+                        )
                         return false
                     }
                 })

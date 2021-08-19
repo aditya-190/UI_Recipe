@@ -101,7 +101,12 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
 
                     override fun onQueryTextSubmit(query: String): Boolean {
                         item.collapseActionView()
-                        navController.navigate(FragmentAdobeXDDirections.actionFragmentAdobeXDToFragmentSearch())
+                        navController.navigate(
+                            FragmentAdobeXDDirections.actionFragmentAdobeXDToFragmentSearch(
+                                searchFor = query.trim(),
+                                searchedBy = getString(R.string.firestore_xd)
+                            )
+                        )
                         return false
                     }
                 })
