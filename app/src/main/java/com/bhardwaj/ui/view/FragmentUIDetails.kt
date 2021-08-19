@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.bhardwaj.ui.R
@@ -23,7 +23,7 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
 
     private var itemList: ArrayList<Any> = arrayListOf()
     private val args: FragmentUIDetailsArgs by navArgs()
-    private lateinit var viewModel: FragmentUIDetailsViewModel
+    private val viewModel: FragmentUIDetailsViewModel by viewModels()
     private lateinit var sliderAdapter: ImageSliderAdapter
     private lateinit var viewPager: ViewPager2
     private lateinit var dotsIndicator: DotsIndicator
@@ -48,8 +48,6 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
         viewPager = view.findViewById(R.id.viewPager)
         dotsIndicator = view.findViewById(R.id.dotsIndicator)
         toolbar = view.findViewById(R.id.bottomAppBar);
-
-        viewModel = ViewModelProvider(this).get(FragmentUIDetailsViewModel::class.java)
 
         itemList.addAll(uiDetails.uiImages!!)
         sliderAdapter = ImageSliderAdapter(requireContext(), itemList)

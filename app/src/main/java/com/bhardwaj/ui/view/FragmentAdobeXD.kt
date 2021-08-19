@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,7 +25,7 @@ import com.ethanhua.skeleton.Skeleton
 class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
     private lateinit var uiListAdapter: UIListAdapter
     private var selectedCategory: Int = -1
-    private lateinit var viewModel: FragmentAdobeXdViewModel
+    private val viewModel: FragmentAdobeXdViewModel by viewModels()
     private lateinit var skeletonScreen: RecyclerViewSkeletonScreen
 
     private lateinit var navController: NavController
@@ -67,7 +67,6 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = uiListAdapter
         }
-        viewModel = ViewModelProvider(this).get(FragmentAdobeXdViewModel::class.java)
 
         if (viewModel.listState != null) {
             adobeRecycler.layoutManager?.onRestoreInstanceState(viewModel.listState)

@@ -5,8 +5,10 @@
       <map>
         <entry key="app/src/main/res/layout/dialog_ui_information.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/layout/fragment_adobe_xd.xml" value="0.23055555555555557" />
+        <entry key="app/src/main/res/layout/fragment_figma.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.23055555555555557" />
+        <entry key="app/src/main/res/layout/fragment_sketch.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/layout/fragment_ui_detail.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/layout/layout_ads_medium.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/layout/layout_ads_small.xml" value="0.23055555555555557" />
