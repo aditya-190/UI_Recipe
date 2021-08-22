@@ -7,7 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.bhardwaj.ui.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,8 +29,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private fun initialise() {
         clRootMain = findViewById(R.id.clRootMain)
         bottomNavigation = findViewById(R.id.bottomNavigationBar)
-
-        navController = findNavController(R.id.fragmentMain)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentMain) as NavHostFragment
+        navController = navHostFragment.navController
         bottomNavigation.setupWithNavController(navController)
         navController.addOnDestinationChangedListener(this)
     }
