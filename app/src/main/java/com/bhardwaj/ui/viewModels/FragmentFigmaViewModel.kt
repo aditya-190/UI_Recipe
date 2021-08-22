@@ -104,7 +104,9 @@ class FragmentFigmaViewModel : ViewModel() {
             itemList.clear()
             firebaseRepository.getUIList(mContext.getString(R.string.firestore_figma))
                 .addOnSuccessListener { result ->
-                    lazyLoadQuery = result.documents[result.size() - 1]
+                    if (result.documents.size > 0) {
+                        lazyLoadQuery = result.documents[result.size() - 1]
+                    }
                     for (item in result) {
                         val uiItem = item.toObject<UI>()
                         itemList.add(uiItem)
