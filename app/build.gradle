@@ -23,10 +23,16 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
-            minifyEnabled = true
+        getByName("debug") {
             shrinkResources = true
-            proguardFiles(getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro')
+            minifyEnabled = true
+            proguardFiles(getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro')
+        }
+
+        getByName("release") {
+            shrinkResources = true
+            minifyEnabled = true
+            proguardFiles(getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro')
         }
     }
 
