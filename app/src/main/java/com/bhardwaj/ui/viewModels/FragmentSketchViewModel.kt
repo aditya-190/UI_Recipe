@@ -106,6 +106,12 @@ class FragmentSketchViewModel : ViewModel() {
                 .addOnSuccessListener { result ->
                     if (result.documents.size > 0) {
                         lazyLoadQuery = result.documents[result.size() - 1]
+                    } else {
+                        Toast.makeText(
+                            mContext,
+                            mContext.getString(R.string.no_results),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                     for (item in result) {
                         val uiItem = item.toObject<UI>()
@@ -136,6 +142,12 @@ class FragmentSketchViewModel : ViewModel() {
             .addOnSuccessListener { result ->
                 if (result.documents.size > 0) {
                     lazyLoadQuery = result.documents[result.size() - 1]
+                } else {
+                    Toast.makeText(
+                        mContext,
+                        mContext.getString(R.string.no_results),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 itemList.clear()
                 for (item in result) {
