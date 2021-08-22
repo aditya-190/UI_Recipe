@@ -42,7 +42,7 @@
     <string name="privacy">Privacy</string>
     <string name="contact">Contact</string>
     <string name="about">About</string>
-    <string name="app_version">App Version 1.0.0</string>
+    <string name="app_version">App Version 1.2.0</string>
 
     <!-- Information Page -->
     <string name="designer">Designer</string>
@@ -52,18 +52,18 @@
 
     <!-- Ad's -->
     <string name="ad">Ad</string>
+    <string name="app_id">ca-app-pub-5040281513434473~9707474917</string>
 
     <!-- Testing ID's -->
-    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="adobe_xd_ads">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="figma_ads">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="sketch_ads">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="ui_details_ads">ca-app-pub-3940256099942544/2247696110</string>
+    <!--    <string name="adobe_xd_ads">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="figma_ads">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="sketch_ads">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="ui_details_ads">ca-app-pub-3940256099942544/2247696110</string>-->
 
     <!-- Real ID's -->
-    <!--    <string name="app_id"></string>-->
-    <!--    <string name="adobe_xd_ads"></string>-->
-    <!--    <string name="figma_ads"></string>-->
-    <!--    <string name="sketch_ads"></string>-->
+    <string name="adobe_xd_ads">ca-app-pub-5040281513434473/4239170597</string>
+    <string name="figma_ads">ca-app-pub-5040281513434473/6889739880</string>
+    <string name="sketch_ads">ca-app-pub-5040281513434473/2076041682</string>
+    <string name="ui_details_ads">ca-app-pub-5040281513434473/9762960017</string>
 
 </resources>
