@@ -48,7 +48,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
                     uiListAdapter.uiList.add(uiItem)
                 }
                 loading.value = false
-                //loadNativeAd(mContext, uiListAdapter)
+                loadNativeAd(mContext, uiListAdapter)
             }.addOnFailureListener {
                 loading.value = false
             }
@@ -120,7 +120,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
                     }
                     uiListAdapter.updateList(itemList)
                     loading.value = false
-                    //loadNativeAd(mContext, uiListAdapter)
+                    loadNativeAd(mContext, uiListAdapter)
                 }.addOnFailureListener {
                     Toast.makeText(
                         mContext,
@@ -152,7 +152,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
                 uiListAdapter.uiList.addAll(itemList)
                 uiListAdapter.notifyDataSetChanged()
                 uiListAdapter.loadMore.value = false
-                //loadNativeAd(mContext, uiListAdapter)
+                loadNativeAd(mContext, uiListAdapter)
 
             }.addOnFailureListener {
                 Toast.makeText(

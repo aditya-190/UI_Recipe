@@ -23,16 +23,24 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
-            shrinkResources = true
-            minifyEnabled = true
-            proguardFiles(getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro')
-        }
+//        getByName("debug") {
+//            shrinkResources = true
+//            minifyEnabled = true
+//            proguardFiles(getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro')
+//        }
 
         getByName("release") {
             shrinkResources = true
             minifyEnabled = true
             proguardFiles(getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro')
+        }
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'build/generated/source/navigation-args'
+            }
         }
     }
 

@@ -51,7 +51,7 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
 
         itemList.addAll(uiDetails.uiImages!!)
         sliderAdapter = ImageSliderAdapter(requireContext(), itemList)
-        //viewModel.loadNativeAd(requireContext(), sliderAdapter)
+        viewModel.loadNativeAd(requireContext(), sliderAdapter)
 
         viewPager.adapter = sliderAdapter
         dotsIndicator.setViewPager2(viewPager)

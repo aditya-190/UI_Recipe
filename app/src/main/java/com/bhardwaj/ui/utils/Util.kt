@@ -14,7 +14,7 @@ import com.google.android.gms.ads.nativead.NativeAdView
 class Util {
     companion object {
 
-        const val intervalOfAds: Int = 1
+        const val intervalOfAds: Int = 5
 
         fun populateNativeAdView(
             nativeAd: NativeAd,
