@@ -10,6 +10,8 @@ import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.bhardwaj.ui.R
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
@@ -34,6 +36,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController = navHostFragment.navController
         bottomNavigation.setupWithNavController(navController)
         navController.addOnDestinationChangedListener(this)
+
+        // TODO [ADITYA]: Remove these before release
+        val testDeviceIds = listOf("0BF60C991231FA0846B18363CAA632EA")
+        val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
+        MobileAds.setRequestConfiguration(configuration)
     }
 
     override fun onDestinationChanged(
