@@ -25,6 +25,13 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MobileAds.initialize(this) {}
+
+        // TODO [ADITYA]: Remove these before release
+        val testDeviceIds = listOf("0BF60C991231FA0846B18363CAA632EA")
+        val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
+        MobileAds.setRequestConfiguration(configuration)
+
         initialise()
     }
 
@@ -36,11 +43,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController = navHostFragment.navController
         bottomNavigation.setupWithNavController(navController)
         navController.addOnDestinationChangedListener(this)
-
-        // TODO [ADITYA]: Remove these before release
-        val testDeviceIds = listOf("0BF60C991231FA0846B18363CAA632EA")
-        val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
-        MobileAds.setRequestConfiguration(configuration)
     }
 
     override fun onDestinationChanged(
