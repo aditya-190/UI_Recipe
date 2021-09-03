@@ -14,6 +14,7 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        FirebaseApp.initializeApp(this)
         MobileAds.initialize(this) {}
 
         // TODO [ADITYA]: Remove these before release
