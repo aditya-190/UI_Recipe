@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
@@ -94,6 +95,10 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
         when (item?.itemId) {
             R.id.search -> {
                 val searchView = item.actionView as SearchView
+                val closeImage: ImageView =
+                    searchView.findViewById(androidx.appcompat.R.id.search_close_btn)
+                closeImage.setImageResource(R.drawable.icon_close)
+
                 searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextChange(newText: String): Boolean {
                         return false

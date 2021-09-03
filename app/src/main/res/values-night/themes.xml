@@ -16,11 +16,12 @@
         <item name="searchViewStyle">@style/customSearchView</item>
         <item name="android:navigationBarColor">@color/colorDarkVariant</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:editTextColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
     </style>
 
     <style name="customSearchView" parent="Widget.AppCompat.SearchView">
         <item name="searchHintIcon">@null</item>
-        <item name="defaultQueryHint">@string/search</item>
         <item name="submitBackground">@color/colorPrimary</item>
         <item name="queryBackground">@color/colorPrimary</item>
     </style>
