@@ -30,6 +30,8 @@ class FragmentFigmaViewModel : ViewModel() {
     private val itemList: ArrayList<Any> = arrayListOf()
     val loading by lazy { MutableLiveData<Boolean>() }
 
+    val startShowingAds = false // Change Here to Show Ads in UI List Adapter
+
     fun filter(category: String, mContext: Context, uiListAdapter: UIListAdapter) {
         loading.value = true
         firebaseRepository.filterUIList(category, mContext.getString(R.string.firestore_figma))
@@ -48,7 +50,7 @@ class FragmentFigmaViewModel : ViewModel() {
                     uiListAdapter.uiList.add(uiItem)
                 }
                 loading.value = false
-                loadNativeAd(mContext, uiListAdapter)
+                if (startShowingAds) loadNativeAd(mContext, uiListAdapter)
             }.addOnFailureListener {
                 loading.value = false
             }
@@ -119,7 +121,7 @@ class FragmentFigmaViewModel : ViewModel() {
                     }
                     uiListAdapter.updateList(itemList)
                     loading.value = false
-                    loadNativeAd(mContext, uiListAdapter)
+                    if (startShowingAds) loadNativeAd(mContext, uiListAdapter)
                 }.addOnFailureListener {
                     Toast.makeText(
                         mContext,
@@ -151,8 +153,7 @@ class FragmentFigmaViewModel : ViewModel() {
                 uiListAdapter.uiList.addAll(itemList)
                 uiListAdapter.notifyDataSetChanged()
                 uiListAdapter.loadMore.value = false
-                loadNativeAd(mContext, uiListAdapter)
-
+                if (startShowingAds) loadNativeAd(mContext, uiListAdapter)
             }.addOnFailureListener {
                 Toast.makeText(
                     mContext,
