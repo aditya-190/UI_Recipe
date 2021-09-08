@@ -13,13 +13,13 @@ class FirestoreRepository {
     fun getUIList(type: String): Task<QuerySnapshot> {
         return firestore.collection(type)
             .limit(limitSize)
-            .orderBy("timeStamp", Query.Direction.ASCENDING)
+            .orderBy("timeStamp", Query.Direction.DESCENDING)
             .get()
     }
 
     fun lazyLoading(type: String, startAt: DocumentSnapshot): Task<QuerySnapshot> {
         return firestore.collection(type)
-            .orderBy("timeStamp", Query.Direction.ASCENDING)
+            .orderBy("timeStamp", Query.Direction.DESCENDING)
             .startAfter(startAt)
             .limit(limitSize)
             .get()
@@ -28,12 +28,12 @@ class FirestoreRepository {
     fun filterUIList(category: String, type: String): Task<QuerySnapshot> {
         return if (category == "All") {
             firestore.collection(type)
-                .orderBy("timeStamp", Query.Direction.ASCENDING)
+                .orderBy("timeStamp", Query.Direction.DESCENDING)
                 .limit(limitSize)
                 .get()
         } else {
             firestore.collection(type)
-                .orderBy("timeStamp", Query.Direction.ASCENDING)
+                .orderBy("timeStamp", Query.Direction.DESCENDING)
                 .whereEqualTo("category", category)
                 .limit(limitSize)
                 .get()
