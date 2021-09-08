@@ -50,8 +50,11 @@
     <string name="ui_image">UI Image</string>
     <string name="button">Button</string>
 
-    <!-- Ad's -->
+    <!-- Ad's & Messaging -->
     <string name="ad">Ad</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="channel_description">This is my default notification channel</string>
+
 
     <!-- Testing ID's -->
         <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
