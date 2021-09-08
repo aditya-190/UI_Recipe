@@ -55,19 +55,10 @@
     <string name="default_notification_channel_id">fcm_default_channel</string>
     <string name="channel_description">This is my default notification channel</string>
 
-
-    <!-- Testing ID's -->
-        <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
-        <string name="adobe_xd_ads">ca-app-pub-3940256099942544/2247696110</string>
-        <string name="figma_ads">ca-app-pub-3940256099942544/2247696110</string>
-        <string name="sketch_ads">ca-app-pub-3940256099942544/2247696110</string>
-        <string name="ui_details_ads">ca-app-pub-3940256099942544/2247696110</string>
-
-    <!-- Real ID's -->
-<!--    <string name="app_id">ca-app-pub-5040281513434473~9707474917</string>-->
-<!--    <string name="adobe_xd_ads">ca-app-pub-5040281513434473/4239170597</string>-->
-<!--    <string name="figma_ads">ca-app-pub-5040281513434473/6889739880</string>-->
-<!--    <string name="sketch_ads">ca-app-pub-5040281513434473/2076041682</string>-->
-<!--    <string name="ui_details_ads">ca-app-pub-5040281513434473/9762960017</string>-->
+    <string name="app_id">ca-app-pub-5040281513434473~9707474917</string>
+    <string name="adobe_xd_ads">ca-app-pub-5040281513434473/4239170597</string>
+    <string name="figma_ads">ca-app-pub-5040281513434473/6889739880</string>
+    <string name="sketch_ads">ca-app-pub-5040281513434473/2076041682</string>
+    <string name="ui_details_ads">ca-app-pub-5040281513434473/9762960017</string>
 
 </resources>
