@@ -47,7 +47,7 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
         fabButton = view.findViewById(R.id.fabButton)
         viewPager = view.findViewById(R.id.viewPager)
         dotsIndicator = view.findViewById(R.id.dotsIndicator)
-        toolbar = view.findViewById(R.id.bottomAppBar);
+        toolbar = view.findViewById(R.id.bottomAppBar)
 
         itemList.addAll(uiDetails.uiImages!!)
         sliderAdapter = ImageSliderAdapter(requireContext(), itemList)
@@ -59,6 +59,12 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
         toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
+
+        viewModel.loading.observe(viewLifecycleOwner, {
+            if (!it) {
+                dotsIndicator.setViewPager2(viewPager)
+            }
+        })
 
         ivInfo.setOnClickListener(this)
         ivShareUI.setOnClickListener(this)

@@ -30,7 +30,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
     private val itemList: ArrayList<Any> = arrayListOf()
     val loading by lazy { MutableLiveData<Boolean>() }
 
-    val startShowingAds = false // Change Here to Show Ads in UI List Adapter
+    private val startShowingAds = false // Change Here to Show Ads in UI List Adapter
 
     fun filter(category: String, mContext: Context, uiListAdapter: UIListAdapter) {
         loading.value = true

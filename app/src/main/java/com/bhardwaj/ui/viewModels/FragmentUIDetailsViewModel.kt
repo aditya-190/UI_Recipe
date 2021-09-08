@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bhardwaj.ui.R
 import com.bhardwaj.ui.adapters.ImageSliderAdapter
@@ -15,6 +16,8 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 
 class FragmentUIDetailsViewModel : ViewModel() {
+
+    val loading by lazy { MutableLiveData<Boolean>() }
 
     fun shareLink(link: String, activity: FragmentActivity) {
         val shareIntent = Intent()
@@ -46,14 +49,17 @@ class FragmentUIDetailsViewModel : ViewModel() {
     }
 
     fun loadNativeAd(mContext: Context, imageSliderAdapter: ImageSliderAdapter) {
+        loading.value = true
         val builder = AdLoader.Builder(mContext, mContext.getString(R.string.ui_details_ads))
         builder.forNativeAd { nativeAd ->
             imageSliderAdapter.updateList(nativeAd)
+            loading.value = false
         }
 
         val adLoader = builder.withAdListener(object : AdListener() {
             override fun onAdFailedToLoad(p0: LoadAdError) {
                 println("ad failed to load")
+                loading.value = false
             }
         }).build()
         adLoader.loadAd(AdRequest.Builder().build())
