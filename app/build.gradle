@@ -83,7 +83,7 @@ dependencies {
 
     // Third Party Libraries
     implementation 'com.ethanhua:skeleton:1.1.2'
-    implementation "com.airbnb.android:lottie:3.6.1"
+    implementation 'com.airbnb.android:lottie:4.1.0'
     implementation 'io.supercharge:shimmerlayout:2.1.0'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
