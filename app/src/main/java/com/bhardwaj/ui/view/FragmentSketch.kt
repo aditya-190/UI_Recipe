@@ -108,8 +108,8 @@ class FragmentSketch : Fragment(), Toolbar.OnMenuItemClickListener {
                         item.collapseActionView()
                         navController.navigate(
                             FragmentSketchDirections.actionFragmentSketchToFragmentSearch(
-                                searchFor = query.trim(),
-                                searchedBy = getString(R.string.firestore_sketch)
+                                query.trim(),
+                                getString(R.string.firestore_sketch)
                             )
                         )
                         return false

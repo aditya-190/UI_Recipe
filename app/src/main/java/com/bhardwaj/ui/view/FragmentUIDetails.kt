@@ -36,7 +36,7 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        uiDetails = args.UIDetail
+        uiDetails = args.uiDetail
         return inflater.inflate(R.layout.fragment_ui_detail, container, false)
     }
 

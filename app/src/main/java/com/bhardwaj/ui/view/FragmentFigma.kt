@@ -108,8 +108,8 @@ class FragmentFigma : Fragment(), Toolbar.OnMenuItemClickListener {
                         item.collapseActionView()
                         navController.navigate(
                             FragmentFigmaDirections.actionFragmentFigmaToFragmentSearch(
-                                searchFor = query.trim(),
-                                searchedBy = getString(R.string.firestore_figma)
+                                query.trim(),
+                                getString(R.string.firestore_figma)
                             )
                         )
                         return false

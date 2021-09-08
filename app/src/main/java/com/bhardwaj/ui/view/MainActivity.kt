@@ -3,7 +3,7 @@ package com.bhardwaj.ui.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -19,7 +19,7 @@ import com.google.firebase.FirebaseApp
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
     private var canShowSnackBar: Boolean = false
-    private lateinit var clRootMain: ConstraintLayout
+    private lateinit var clRootMain: CoordinatorLayout
     private lateinit var navController: NavController
     private lateinit var bottomNavigation: BottomNavigationView
 

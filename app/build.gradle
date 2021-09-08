@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("androidx.navigation.safeargs.kotlin")
+    id("androidx.navigation.safeargs")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("com.google.gms.google-services")
@@ -65,8 +65,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Navigation
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.0-alpha08"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.0-alpha08"
 
     // Admob & Firebase
     implementation 'com.google.firebase:firebase-ads:20.3.0'

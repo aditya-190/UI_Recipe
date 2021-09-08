@@ -108,8 +108,8 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
                         item.collapseActionView()
                         navController.navigate(
                             FragmentAdobeXDDirections.actionFragmentAdobeXDToFragmentSearch(
-                                searchFor = query.trim(),
-                                searchedBy = getString(R.string.firestore_xd)
+                                query.trim(),
+                                getString(R.string.firestore_xd)
                             )
                         )
                         return false
