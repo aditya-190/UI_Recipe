@@ -26,11 +26,13 @@ class FragmentAdobeXdViewModel : ViewModel() {
     var listState: Parcelable? = null
     lateinit var lazyLoadQuery: DocumentSnapshot
     private var firebaseRepository = FirestoreRepository()
-    private var unifiedAds: ArrayList<NativeAd> = arrayListOf()
+    private lateinit var unifiedAds: NativeAd
     private val itemList: ArrayList<Any> = arrayListOf()
     val loading by lazy { MutableLiveData<Boolean>() }
 
-    private val startShowingAds = false // Change Here to Show Ads in UI List Adapter
+    private var indexDefaultValue: Int = 5
+    private var indexForAd: Int = indexDefaultValue
+    private val startShowingAds = true // Change Here to Show Ads in UI List Adapter
 
     fun filter(category: String, mContext: Context, uiListAdapter: UIListAdapter) {
         loading.value = true
@@ -57,23 +59,16 @@ class FragmentAdobeXdViewModel : ViewModel() {
     }
 
     private fun insertAds(uiListAdapter: UIListAdapter) {
-        if (unifiedAds.size <= 0) return
-        val offset: Int = (itemList.size / unifiedAds.size) + 1
-        var index = intervalOfAds
-        for (unifiedAd in unifiedAds) {
-            uiListAdapter.uiList.add(index, unifiedAd)
-            uiListAdapter.notifyDataSetChanged()
-            index += offset
-        }
+        uiListAdapter.uiList.add(indexForAd, unifiedAds)
+        uiListAdapter.notifyItemInserted(indexForAd)
     }
 
     private fun loadNativeAd(mContext: Context, uiListAdapter: UIListAdapter) {
-        unifiedAds.clear()
         var adLoader: AdLoader? = null
         val builder =
             AdLoader.Builder(mContext, mContext.resources.getString(R.string.adobe_xd_ads))
         adLoader = builder.forNativeAd { nativeAd ->
-            unifiedAds.add(nativeAd)
+            unifiedAds = nativeAd
 
             if (!adLoader!!.isLoading) {
                 insertAds(uiListAdapter)
@@ -122,6 +117,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
                     }
                     uiListAdapter.updateList(itemList)
                     loading.value = false
+                    indexForAd = indexDefaultValue
                     if (startShowingAds) loadNativeAd(mContext, uiListAdapter)
                 }.addOnFailureListener {
                     Toast.makeText(
@@ -154,6 +150,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
                 uiListAdapter.uiList.addAll(itemList)
                 uiListAdapter.notifyDataSetChanged()
                 uiListAdapter.loadMore.value = false
+                indexForAd += intervalOfAds
                 if (startShowingAds) loadNativeAd(mContext, uiListAdapter)
             }.addOnFailureListener {
                 Toast.makeText(
