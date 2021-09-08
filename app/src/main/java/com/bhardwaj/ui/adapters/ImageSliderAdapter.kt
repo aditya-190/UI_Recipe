@@ -30,7 +30,7 @@ class ImageSliderAdapter(
         var postion: Int = imageSliderList.size
         postion = (postion / 2) + 1
         imageSliderList.add(postion, item)
-        notifyItemInserted(postion)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
