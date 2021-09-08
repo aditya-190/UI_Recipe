@@ -80,7 +80,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ad_icon" />
+            app:layout_constraintTop_toBottomOf="@id/ad_stars" />
 
         <com.google.android.gms.ads.nativead.MediaView
             android:id="@+id/ad_media"

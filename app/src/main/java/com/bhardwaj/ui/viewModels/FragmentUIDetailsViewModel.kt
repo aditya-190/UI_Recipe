@@ -56,6 +56,6 @@ class FragmentUIDetailsViewModel : ViewModel() {
                 println("ad failed to load")
             }
         }).build()
-        adLoader.loadAds(AdRequest.Builder().build(), 1)
+        adLoader.loadAd(AdRequest.Builder().build())
     }
 }

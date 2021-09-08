@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        FirebaseApp.initializeApp(this)
         MobileAds.initialize(this) {}
 
         // TODO [ADITYA]: Remove these before release
