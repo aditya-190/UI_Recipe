@@ -60,7 +60,7 @@ class FragmentFigmaViewModel : ViewModel() {
         var index = intervalOfAds
         for (unifiedAd in unifiedAds) {
             uiListAdapter.uiList.add(index, unifiedAd)
-            uiListAdapter.notifyItemInserted(index)
+            uiListAdapter.notifyDataSetChanged()
             index += offset
         }
     }
@@ -82,7 +82,7 @@ class FragmentFigmaViewModel : ViewModel() {
             }
         }).build()
 
-        adLoader.loadAds(AdRequest.Builder().build(), 5)
+        adLoader.loadAd(AdRequest.Builder().build())
     }
 
     fun refresh(mContext: Context, uiListAdapter: UIListAdapter) {
