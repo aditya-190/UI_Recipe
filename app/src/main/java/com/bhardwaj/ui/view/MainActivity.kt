@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 .also {
                     it.setAction("Yes") { ActivityCompat.finishAffinity(this) }
                     it.setActionTextColor(resources.getColor(R.color.colorWhite, this.theme))
+                    it.anchorView = bottomNavigation
                 }.show()
         } else {
             super.onBackPressed()
