@@ -17,8 +17,7 @@ import com.google.android.material.card.MaterialCardView
 
 class SearchAdapter(
     val mContext: Context,
-    private val searchList: ArrayList<UI>,
-    private val type: String
+    private val searchList: ArrayList<UI>
 ) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     class ViewHolder(var view: View) : RecyclerView.ViewHolder(view) {

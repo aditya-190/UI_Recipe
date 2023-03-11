@@ -11,8 +11,8 @@ import com.google.firebase.firestore.ktx.toObject
 import java.util.*
 
 class FragmentSearchViewModel : ViewModel() {
-    var firebaseRepository = FirestoreRepository()
-    var queryList: ArrayList<String> = arrayListOf()
+    private var firebaseRepository = FirestoreRepository()
+    private var queryList: ArrayList<String> = arrayListOf()
     val uiList by lazy { MutableLiveData<ArrayList<UI>>() }
     val loading by lazy { MutableLiveData<Boolean>() }
 

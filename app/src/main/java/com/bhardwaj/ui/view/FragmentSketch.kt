@@ -22,8 +22,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bhardwaj.ui.R
 import com.bhardwaj.ui.adapters.UIListAdapter
 import com.bhardwaj.ui.viewModels.FragmentSketchViewModel
-import com.ethanhua.skeleton.RecyclerViewSkeletonScreen
-import com.ethanhua.skeleton.Skeleton
+import com.bhardwaj.skeleton.RecyclerViewSkeletonScreen
+import com.bhardwaj.skeleton.Skeleton
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class FragmentSketch : Fragment(), Toolbar.OnMenuItemClickListener {
@@ -75,15 +75,15 @@ class FragmentSketch : Fragment(), Toolbar.OnMenuItemClickListener {
 
         viewModel.loading.observe(viewLifecycleOwner, loadingLiveDataObserver)
 
-        uiListAdapter.loadMore.observe(viewLifecycleOwner, {
+        uiListAdapter.loadMore.observe(viewLifecycleOwner) {
             if (it) viewModel.lazyLoading(requireContext(), uiListAdapter)
-        })
+        }
 
         skeletonScreen = Skeleton.bind(sketchRecycler)
-            .adapter(uiListAdapter)
-            .load(R.layout.layout_skeleton)
-            .count(2)
-            .show()
+            ?.adapter(uiListAdapter)
+            ?.load(R.layout.layout_skeleton)
+            ?.count(2)
+            ?.show()!!
 
         sketchRefreshLayout.setOnRefreshListener {
             sketchRefreshLayout.isRefreshing = true

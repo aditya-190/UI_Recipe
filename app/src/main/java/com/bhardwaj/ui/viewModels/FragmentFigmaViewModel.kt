@@ -3,7 +3,6 @@ package com.bhardwaj.ui.viewModels
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Parcelable
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,12 +18,10 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.toObject
-import java.util.*
 
 class FragmentFigmaViewModel : ViewModel() {
 
-    var listState: Parcelable? = null
-    lateinit var lazyLoadQuery: DocumentSnapshot
+    private lateinit var lazyLoadQuery: DocumentSnapshot
     private var firebaseRepository = FirestoreRepository()
     private lateinit var unifiedAds: NativeAd
     private val itemList: ArrayList<Any> = arrayListOf()

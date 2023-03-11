@@ -14,7 +14,6 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
@@ -70,6 +69,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
     }
 
+    @Deprecated("Will Change It Later")
     override fun onBackPressed() {
         if (canShowSnackBar) {
             Snackbar.make(clRootMain, getString(R.string.exit), Snackbar.LENGTH_SHORT)

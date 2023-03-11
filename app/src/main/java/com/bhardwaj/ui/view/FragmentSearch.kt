@@ -14,8 +14,8 @@ import com.bhardwaj.ui.R
 import com.bhardwaj.ui.adapters.SearchAdapter
 import com.bhardwaj.ui.models.UI
 import com.bhardwaj.ui.viewModels.FragmentSearchViewModel
-import com.ethanhua.skeleton.RecyclerViewSkeletonScreen
-import com.ethanhua.skeleton.Skeleton
+import com.bhardwaj.skeleton.RecyclerViewSkeletonScreen
+import com.bhardwaj.skeleton.Skeleton
 
 class FragmentSearch : Fragment() {
 
@@ -28,7 +28,7 @@ class FragmentSearch : Fragment() {
     private lateinit var searchRecycler: RecyclerView
 
     private val uiListDataObserver = Observer<ArrayList<UI>> { list ->
-        list?.let {
+        list.let {
             searchRecycler.visibility = View.VISIBLE
             uiListAdapter.updateList(it)
         }
@@ -52,7 +52,7 @@ class FragmentSearch : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         searchRecycler = view.findViewById(R.id.searchRecycler)
 
-        uiListAdapter = SearchAdapter(requireContext(), arrayListOf(), searchedBy)
+        uiListAdapter = SearchAdapter(requireContext(), arrayListOf())
         viewModel.uiList.observe(viewLifecycleOwner, uiListDataObserver)
         viewModel.loading.observe(viewLifecycleOwner, loadingLiveDataObserver)
 
@@ -68,9 +68,9 @@ class FragmentSearch : Fragment() {
         )
 
         skeletonScreen = Skeleton.bind(searchRecycler)
-            .adapter(uiListAdapter)
-            .load(R.layout.layout_skeleton)
-            .count(2)
-            .show()
+            ?.adapter(uiListAdapter)
+            ?.load(R.layout.layout_skeleton)
+            ?.count(2)
+            ?.show()!!
     }
 }

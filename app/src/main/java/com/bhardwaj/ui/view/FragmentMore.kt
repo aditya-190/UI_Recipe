@@ -35,7 +35,7 @@ class FragmentMore : Fragment(), View.OnClickListener {
         tvAbout = view.findViewById(R.id.tvAbout)
         tvContact = view.findViewById(R.id.tvContact)
 
-        viewModel = ViewModelProvider(this).get(FragmentMoreViewModel::class.java)
+        viewModel = ViewModelProvider(this)[FragmentMoreViewModel::class.java]
         navController = view.findNavController()
 
         tvRateApp.setOnClickListener(this)

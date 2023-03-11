@@ -23,7 +23,7 @@ class Util {
             adView.mediaView = adView.findViewById(R.id.ad_media)
             adView.headlineView = adView.findViewById(R.id.ad_headline)
             (adView.headlineView as TextView).text = nativeAd.headline
-            adView.mediaView?.setMediaContent(nativeAd.mediaContent!!)
+            adView.mediaView?.mediaContent = nativeAd.mediaContent!!
 
             adView.bodyView = adView.findViewById(R.id.ad_body)
             if (nativeAd.body == null) {

@@ -54,17 +54,17 @@ class FragmentUIDetails : Fragment(), View.OnClickListener {
         viewModel.loadNativeAd(requireContext(), sliderAdapter)
 
         viewPager.adapter = sliderAdapter
-        dotsIndicator.setViewPager2(viewPager)
+        dotsIndicator.attachTo(viewPager)
 
         toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
 
-        viewModel.loading.observe(viewLifecycleOwner, {
+        viewModel.loading.observe(viewLifecycleOwner) {
             if (!it) {
-                dotsIndicator.setViewPager2(viewPager)
+                dotsIndicator.attachTo(viewPager)
             }
-        })
+        }
 
         ivInfo.setOnClickListener(this)
         ivShareUI.setOnClickListener(this)

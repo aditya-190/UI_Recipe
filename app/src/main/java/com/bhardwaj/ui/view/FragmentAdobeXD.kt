@@ -19,11 +19,11 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.bhardwaj.skeleton.RecyclerViewSkeletonScreen
+import com.bhardwaj.skeleton.Skeleton
 import com.bhardwaj.ui.R
 import com.bhardwaj.ui.adapters.UIListAdapter
 import com.bhardwaj.ui.viewModels.FragmentAdobeXdViewModel
-import com.ethanhua.skeleton.RecyclerViewSkeletonScreen
-import com.ethanhua.skeleton.Skeleton
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
@@ -75,15 +75,15 @@ class FragmentAdobeXD : Fragment(), Toolbar.OnMenuItemClickListener {
 
         viewModel.loading.observe(viewLifecycleOwner, loadingLiveDataObserver)
 
-        uiListAdapter.loadMore.observe(viewLifecycleOwner, {
+        uiListAdapter.loadMore.observe(viewLifecycleOwner) {
             if (it) viewModel.lazyLoading(requireContext(), uiListAdapter)
-        })
+        }
 
         skeletonScreen = Skeleton.bind(adobeRecycler)
-            .adapter(uiListAdapter)
-            .load(R.layout.layout_skeleton)
-            .count(2)
-            .show()
+            ?.adapter(uiListAdapter)
+            ?.load(R.layout.layout_skeleton)
+            ?.count(2)
+            ?.show()!!
 
         adobeRefreshLayout.setOnRefreshListener {
             adobeRefreshLayout.isRefreshing = true

@@ -2,7 +2,6 @@ package com.bhardwaj.ui.viewModels
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
@@ -28,16 +27,6 @@ class FragmentUIDetailsViewModel : ViewModel() {
             Intent.createChooser(
                 shareIntent,
                 activity.getString(R.string.share_link_via)
-            )
-        )
-    }
-
-    fun downloadLink(url: String, activity: FragmentActivity) {
-        val shareIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        activity.startActivity(
-            Intent.createChooser(
-                shareIntent,
-                activity.getString(R.string.open_link_via)
             )
         )
     }
