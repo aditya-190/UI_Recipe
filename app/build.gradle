@@ -83,7 +83,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0"
 
     // Third Party Libraries
-    implementation 'com.github.aditya-190:Skeleton:0.0.3'
+    implementation 'com.github.aditya-190:Skeleton:0.0.4'
     implementation 'com.airbnb.android:lottie:4.1.0'
     implementation 'io.supercharge:shimmerlayout:2.1.0'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
