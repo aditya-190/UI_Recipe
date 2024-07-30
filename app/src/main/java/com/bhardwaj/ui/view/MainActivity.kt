@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         MobileAds.initialize(this) {}
 
         // TODO [ADITYA]: Remove these before release
-        val testDeviceIds = listOf("0BF60C991231FA0846B18363CAA632EA")
-        val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
-        MobileAds.setRequestConfiguration(configuration)
+//        val testDeviceIds = listOf("0BF60C991231FA0846B18363CAA632EA")
+//        val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
+//        MobileAds.setRequestConfiguration(configuration)
 
         initialise()
     }

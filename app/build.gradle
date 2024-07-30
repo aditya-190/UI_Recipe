@@ -14,22 +14,23 @@ android {
         minSdkVersion 24
         compileSdk 34
         targetSdk 34
-        versionCode 10
-        versionName "1.0.10"
+        versionCode 15
+        versionName "1.0.15"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-//        getByName("debug") {
+//        debug {
 //            shrinkResources = true
 //            minifyEnabled = true
 //            proguardFiles(getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro')
 //        }
 
-        getByName("release") {
+        release {
             shrinkResources = true
             minifyEnabled = true
+            debuggable = false
             proguardFiles(getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro')
         }
     }
