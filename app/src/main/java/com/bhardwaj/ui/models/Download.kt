@@ -8,7 +8,9 @@ import android.content.IntentFilter
 import android.net.Uri
 import android.os.Environment
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.bhardwaj.ui.R
+import androidx.core.net.toUri
 
 class Download(
     private val url: String,
@@ -20,7 +22,7 @@ class Download(
 
     fun downloadFile() {
         try {
-            val downloadRequest = DownloadManager.Request(Uri.parse(url))
+            val downloadRequest = DownloadManager.Request(url.toUri())
             downloadManager = mContext.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
             downloadRequest.apply {
                 setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)
@@ -29,9 +31,11 @@ class Download(
                 setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                 setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
             }
-            mContext.registerReceiver(
+            ContextCompat.registerReceiver(
+                mContext,
                 receiver,
-                IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
+                IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE),
+                ContextCompat.RECEIVER_NOT_EXPORTED
             )
             downloadReference = downloadManager.enqueue(downloadRequest)
         } catch (e: Exception) {

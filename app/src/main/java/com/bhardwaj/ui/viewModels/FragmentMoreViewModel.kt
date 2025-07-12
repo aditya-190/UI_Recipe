@@ -2,25 +2,23 @@ package com.bhardwaj.ui.viewModels
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import com.bhardwaj.ui.R
+import androidx.core.net.toUri
 
 class FragmentMoreViewModel : ViewModel() {
     fun rateApp(mContext: Context) {
         val intent = Intent(Intent.ACTION_VIEW).apply {
-            data = Uri.parse(
-                "https://play.google.com/store/apps/details?id=com.bhardwaj.ui"
-            )
+            data = "https://play.google.com/store/apps/details?id=com.bhardwaj.ui".toUri()
         }
         mContext.startActivity(intent)
     }
 
     fun contact(activity: FragmentActivity) {
         val intent = Intent(Intent.ACTION_SENDTO)
-        intent.data = Uri.parse("mailto:")
+        intent.data = "mailto:".toUri()
         intent.putExtra(Intent.EXTRA_EMAIL, "yrkkh.cclub@gmail.com")
         intent.putExtra(Intent.EXTRA_SUBJECT, "Regarding UI Recipe App")
         activity.startActivity((Intent.createChooser(intent, "Send email via:")))

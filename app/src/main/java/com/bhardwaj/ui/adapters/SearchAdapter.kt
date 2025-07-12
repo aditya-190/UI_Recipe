@@ -14,6 +14,7 @@ import com.bhardwaj.ui.view.FragmentSearchDirections
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.card.MaterialCardView
+import androidx.navigation.findNavController
 
 class SearchAdapter(
     val mContext: Context,
@@ -49,7 +50,7 @@ class SearchAdapter(
             .into(holder.ivImage)
 
         holder.mcvUIContainer.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(
+            view.findNavController().navigate(
                 FragmentSearchDirections.actionFragmentSearchToFragmentUIDetails(current)
             )
         }

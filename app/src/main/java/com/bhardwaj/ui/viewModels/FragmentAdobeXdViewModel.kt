@@ -10,7 +10,7 @@ import com.bhardwaj.ui.R
 import com.bhardwaj.ui.adapters.UIListAdapter
 import com.bhardwaj.ui.models.FirestoreRepository
 import com.bhardwaj.ui.models.UI
-import com.bhardwaj.ui.utils.Util.Companion.intervalOfAds
+import com.bhardwaj.ui.utils.Util.Companion.INTERVALS_OF_ADS
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
@@ -136,7 +136,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
     fun lazyLoading(mContext: Context, uiListAdapter: UIListAdapter) {
         firebaseRepository.lazyLoading(mContext.getString(R.string.firestore_xd), lazyLoadQuery)
             .addOnSuccessListener { result ->
-                if (result.documents.size > 0) {
+                if (result.documents.isNotEmpty()) {
                     lazyLoadQuery = result.documents[result.size() - 1]
                 }
                 itemList.clear()
@@ -147,7 +147,7 @@ class FragmentAdobeXdViewModel : ViewModel() {
                 uiListAdapter.uiList.addAll(itemList)
                 uiListAdapter.notifyDataSetChanged()
                 uiListAdapter.loadMore.value = false
-                indexForAd += intervalOfAds
+                indexForAd += INTERVALS_OF_ADS
                 if (startShowingAds) loadNativeAd(mContext, uiListAdapter)
             }.addOnFailureListener {
                 Toast.makeText(

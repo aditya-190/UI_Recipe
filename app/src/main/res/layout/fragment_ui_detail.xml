@@ -8,7 +8,7 @@
         android:id="@+id/dotsIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:dotsColor="@color/colorWhite"
         app:dotsSize="8dp"
         app:dotsSpacing="3.5dp"
